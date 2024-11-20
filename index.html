@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="media.css" />
+  </head>
+  <body>
+    <nav id="desktop-nav">
+      <div class="logo">Thuvan Maideen
+    </div>
+      <div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#Achivement">Achivement</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      
+    </div>
+    </nav>
+    <nav id="hamburger-nav">
+      <div class="logo">Thuvan Maideen</div>
+      <div class="hamburger-menu">
+        <div class="hamburger-icon" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-links">
+          <li><a href="#about" onclick="toggleMenu()">About</a></li>
+          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
+          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
+          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+        </div>
+      </div>
+    </nav>
+    <section id="profile">
+      <div class="section__pic-container">
+        <img src="./assert/profile.png" alt="myprofile_picture" />
+      </div>
+      <div class="section__text">
+        <p class="section__text__p1">Hello, I'm</p><br>
+        <h1 class="title">Thuvan Maideen</h1>
+        <p class="section__text__p2">Frontend Developer</p>
+        <div class="btn-container">
+          <button
+            class="btn btn-color-2"
+            onclick="window.open('./assert/THUVANMAIDEEN.pdf')">
+            Download CV
+          </button>
+          <button class="btn btn-color-1" onclick="location.href='./#contact'">
+            Contact Info
+          </button>
+        </div>
+        <div id="socials-container">
+          <img
+            src="./assert/linkedin.png"
+            alt="My LinkedIn profile"
+            class="icon"
+            onclick="location.href='https://www.linkedin.com/in/thuvan-maideen-46b640331?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BlhgARkpZRAS%2F4NX8ZYDnpg%3D%3D/'"
+          />
+          <img
+            src="./assert/github.png"
+            alt="My Github profile"
+            class="icon"
+            onclick="location.href='https://github.com/'"
+          />
+        </div>
+      </div>
+    </section>
+    <section id="about">
+      <p class="section__text__p1">Get To Know More</p>
+      <h1 class="title">About Me</h1>
+      <div class="section-container">
+        <div class="section__pic-container">
+          <img
+            src="./assert/about_pic.png"
+            alt="Profile picture"
+            class="about-pic"
+          />
+        </div>
+        <div class="about-details-container">
+          <div class="about-containers">
+            <div class="details-container">
+            
+            <br class="details-container">
+              <img
+                src="./assert/education.png"
+                alt="Education icon"
+                class="icon"
+              />
+              <h3 style="font-size: 24px;">Education</h3>
+                <p style="font-size: 15px;"><span style="font-weight: bold; color:black"> Bachelor Of Science In Information Technology</span><br />Arulmigu Kalasalingam college of Arts And Science-Krishnankoil
+                   <br>(Afliated By Madurai Kamaraj University) <br> SEP 2020-APRIL2023
+                </p>
+                <br>
+                <p style="font-size: 15px;"><span style="font-weight: bold; color:black"> Master Of Science In Computer Science</span><br /> Government Arts college (Autonomous)-Coimbatore
+                  <br> (An Autonomous Institution Afliated To Bharathiar University) <br> SEP 2020-APRIL2023
+               </p>
+              </div>
+                         
+            
+          </div>
+          <div class="text-container">
+            <p>
+              Motivated and detail-oriented software developer with a solid foundation
+              in web technologies including HTML,CSS, PythonandDjangoframework.
+              Holder of a Bachelor's degree in Information Technology with distinction
+              and currently pursuing an MSc in Computer Science. Skilled in Git,
+              GitHub,Excel and experienced in developing projects like an Online Smart
+              Farmer Mandi Assistant. Eager to apply academic knowledge and
+              problem-solving skills to contribute to a dynamic IT team while
+              continually learning and adapting to new technologies.
+            </p>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./assert/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#experience'"
+      />
+    </section>
+    <section id="experience">
+      <p class="section__text__p1">Explore My</p>
+      <h1 class="title">Experience</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container">
+            <h2 class="experience-sub-title">Frontend Development</h2>
+            <div class="article-container">
+              <article>
+                <img
+                  src="./assert/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>HTML</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assert/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>CSS</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assert/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>JavaScript</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assert/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Python</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assert/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Django Framework</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assert/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Bootstrap</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="details-container">
+            <h2 class="experience-sub-title">Frontend Development</h2>
+            <div class="article-container">
+              <article>
+                <img
+                  src="./assert/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>MYSQL Database</h3>
+                  <p>Experienced</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assert/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Excel</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assert/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>OOPS</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+              <article>
+                <img
+                  src="./assert/checkmark.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <div>
+                  <h3>Git And GitHub</h3>
+                  <p>Intermediate</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./assert/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#projects'"
+      />
+     
+    </section>
+    <section id="projects">
+      <p class="section__text__p1">Browse My Recent</p>
+      <h1 class="title">Projects</h1>
+      <div class="experience-details-container">
+        <div class="about-containers">
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assert/web1.jpg"
+                alt="Project 1"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Project One</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/Maideen8081/project2.git'"
+              >
+                Github
+              </button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/Maideen8081/project2.git'"
+              >
+                Live Demo
+              </button>
+            </div>
+          </div>
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assert/web2.jpg"
+                alt="Project 2"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Project Two</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/Maideen8081/project2.git'"
+              >
+                Github
+              </button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/Maideen8081/project2.git'"
+              >
+                Live Demo
+              </button>
+            </div>
+          </div>
+          <div class="details-container color-container">
+            <div class="article-container">
+              <img
+                src="./assert/web3.jpg"
+                alt="Project 3"
+                class="project-img"
+              />
+            </div>
+            <h2 class="experience-sub-title project-title">Project Three</h2>
+            <div class="btn-container">
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/Maideen8081'"
+              >
+                Github
+              </button>
+              <button
+                class="btn btn-color-2 project-btn"
+                onclick="location.href='https://github.com/Maideen8081'"
+              >
+                Live Demo
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <img
+        src="./assert/arrow.png"
+        alt="Arrow icon"
+        class="icon arrow"
+        onclick="location.href='./#contact'"
+      />
+      
+    </section>
+  <section id="Achivement">
+    <p class="section__text__p1"></p>
+    <h1 class="title">Achivement</h1>
+    <div class="section-container">
+      <div class="section__pic-container">
+        <img
+          src="./assert/demo.jpg"
+          alt="Profile picture"
+          class="about-pic"
+        />
+      </div>
+      <div class="about-details-container">
+        <div class="about-containers">
+          <div class="details-container">
+          
+          <br class="details-container">
+            <img
+              src="./assert/education.png"
+              alt="Education icon"
+              class="icon"
+            />
+            <h3 style="font-size: 24px;">Activity</h3>
+              <p style="font-size: 15px;text-align:justify">I received <span style="font-weight: bold ;color:black">first prize </span>in a paper
+                presentation on <span style="font-weight: bold ;color:black">'Internet of Things
+                  (IoT)'</span> during my college function,
+                demonstrating expertise in IoT,
+                technology
+                integration,
+                innovative solutions</p>
+              <br>
+              <p style="font-size: 15px; text-align:justify">I received <span style="font-weight: bold; color:black">first prize</span> in a paper
+                presentation
+                on <span style="font-weight: bold ;color:black">'Artificial
+                  Intelligence (AI)'</span> during my college
+                function, demonstrating expertise
+                in AI, technology integration, and
+                innovative solutions </p>
+                <br>
+                <p style="font-size: 15px;text-align:justify"> I participated in a program <span style="font-weight: bold ;color:black">debugging event</span>
+                   during mycollege
+                  association function, demonstrating
+                  myskills in debugging,
+                  problem-solving, and software
+                  development</p>
+            </div>
+                       
+          
+        </div>
+      </div>
+    </div>
+  </section>
+    <section id="contact">
+      <p class="section__text__p1">Get in Touch</p>
+      <h1 class="title">Contact Me</h1>
+      <div class="contact-info-upper-container">
+        <div class="contact-info-container">
+          <img
+            src="./assert/email.png"
+            alt="Email icon"
+            class="icon contact-icon email-icon"
+          />
+          <p><a href="mailto:maideen8081@gmail.com">maideen8081@gmail.com</a></p>
+        </div>
+        <div class="contact-info-container">
+          <img
+            src="./assert/linkedin.png"
+            alt="LinkedIn icon"
+            class="icon contact-icon"
+          />
+          <p><a href="https://www.linkedin.com">LinkedIn</a></p>
+        </div>
+      </div>
+    </section>
+      
+    <footer>
+      <div class="icons"><img
+        src="./assert/facebook.png"
+        alt="LinkedIn icon"
+        class="icon contact-icon"
+      onclick="location.href='https://www.facebook.com/'"
+      />
+      
+      <div class="con"><img
+        src="./assert/twitter.jpg"
+        alt="LinkedIn icon"
+        class="icon contact-icon"
+        onclick="location.href='https://twitter.com/settings/account?lang=en'"
+      /></div>
+      <div class="con1"><img
+        src="./assert/instagram.png"
+        alt="LinkedIn icon"
+        class="icon contact-icon"
+        onclick="location.href='https://www.instagram.com/'"
+      /></div>
+      
+    </div>
+      
+      <nav>
+        <div class="nav-links-container">
+          <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#Achivement">Achivement</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </nav>
+      <p>Copyright &#169; 2024 ThuvanMaideen. All Rights Reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
