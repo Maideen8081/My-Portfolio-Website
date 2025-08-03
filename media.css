@@ -101,4 +101,11 @@
       text-align: justify;
     }
   }
+
+  .about-pic {
+    width: 400px;
+    height: 100%;
+    margin-top: 10px;
+    border-radius: 2rem;
+  }
   

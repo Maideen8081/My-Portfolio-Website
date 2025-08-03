@@ -1,464 +1,660 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Portfolio</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thuvan Maideen - QA Engineer & Full Stack Developer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="media.css" />
-  </head>
-  <body>
-    <nav id="desktop-nav">
-      <div class="logo">Thuvan Maideen
-    </div>
-      <div>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#Achivement">Achivement</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      
-    </div>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">Thuvan Maideen</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#achievements" class="nav-link">Achievements</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
     </nav>
-    <nav id="hamburger-nav">
-      <div class="logo">Thuvan Maideen</div>
-      <div class="hamburger-menu">
-        <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About</a></li>
-          <li><a href="#experience" onclick="toggleMenu()">Experience</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">Projects</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
-        </div>
-      </div>
-    </nav>
-    <section id="profile">
-      <div class="section__pic-container">
-        <img src="./assert/profile.png" alt="myprofile_picture" />
-      </div>
-      <div class="section__text">
-        <p class="section__text__p1">Hello, I'm</p><br>
-        <h1 class="title">Thuvan Maideen</h1>
-        <p class="section__text__p2">Frontend Developer</p>
-        <div class="btn-container">
-          <button
-            class="btn btn-color-2"
-            onclick="window.open('./assert/THUVANMAIDEEN.pdf')">
-            Download CV
-          </button>
-          <button class="btn btn-color-1" onclick="location.href='./#contact'">
-            Contact Info
-          </button>
-        </div>
-        <div id="socials-container">
-          <img
-            src="./assert/linkedin.png"
-            alt="My LinkedIn profile"
-            class="icon"
-            onclick="location.href='https://www.linkedin.com/in/thuvan-maideen-46b640331?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BlhgARkpZRAS%2F4NX8ZYDnpg%3D%3D/'"
-          />
-          <img
-            src="./assert/github.png"
-            alt="My Github profile"
-            class="icon"
-            onclick="location.href='https://github.com/'"
-          />
-        </div>
-      </div>
-    </section>
-    <section id="about">
-      <p class="section__text__p1">Get To Know More</p>
-      <h1 class="title">About Me</h1>
-      <div class="section-container">
-        <div class="section__pic-container">
-          <img
-            src="./assert/about_pic.png"
-            alt="Profile picture"
-            class="about-pic"
-          />
-        </div>
-        <div class="about-details-container">
-          <div class="about-containers">
-            <div class="details-container">
-            
-            <br class="details-container">
-              <img
-                src="./assert/education.png"
-                alt="Education icon"
-                class="icon"
-              />
-              <h3 style="font-size: 24px;">Education</h3>
-                <p style="font-size: 15px;"><span style="font-weight: bold; color:black"> Bachelor Of Science In Information Technology</span><br />Arulmigu Kalasalingam college of Arts And Science-Krishnankoil
-                   <br>(Afliated By Madurai Kamaraj University) <br> SEP 2020-APRIL2023
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content" style="margin-top: 100px;">
+            <div class="hero-text fade-in-up">
+                <p class="greeting">👋 Hello, I'm</p>
+                <h1 style="font-size: 53px;">Thuvan Maideen</h1>
+                <p class="role">Aspiring QA Engineer & Full Stack Developer</p>
+                <p class="description">
+                    Motivated and detail-oriented software developer with a strong academic foundation and hands-on experience in web development. Passionate about quality assurance, testing methodologies, and delivering high-quality software solutions that meet user needs and business requirements.
                 </p>
-                <br>
-                <p style="font-size: 15px;"><span style="font-weight: bold; color:black"> Master Of Science In Computer Science</span><br /> Government Arts college (Autonomous)-Coimbatore
-                  <br> (An Autonomous Institution Afliated To Bharathiar University) <br> SEP 2020-APRIL2023
-               </p>
-              </div>
-                         
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i>
+                        Get In Touch
+                    </a>
+                    <a href="assert/thuvanmaideen.pdf" class="btn btn-outline" onclick="downloadCV()">
+                        <i class="fas fa-download"></i>
+                        Download CV
+                    </a>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/thuvan-maideen-46b640331" target="_blank" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/Maideen8081" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:maideen8081@gmail.com" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://twitter.com/" target="_blank" title="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+           <div class="hero-image fade-in-up">
+    <div class="profile-card">
+        <div class="profile-img">
+            <!-- Replace the icon with your image -->
+            <img src="assert/profile.png" alt="Thuvan Maideen" class="profile-photo">
+        </div>
+        <div class="status-indicator">
+            <div class="status-dot"></div>
+            <span>Available for opportunities</span>
+        </div>
+    </div>
+</div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="section-title">
+                <p class="subtitle">Get To Know More</p>
+                <h2>About Me</h2>
+                <p>Discover my journey, education, and passion for technology and quality assurance</p>
+            </div>
+            <div class="about-content fade-in-up">
+                <div class="about-image">
+                    <div class="about-avatar">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>My Story & Background</h3>
+                    <p>
+                        I am a passionate and detail-oriented software developer with a strong academic foundation in Information Technology and Computer Science. My journey in technology has been driven by curiosity, continuous learning, and a desire to create meaningful digital solutions that make a difference.
+                    </p>
+                    <p>
+                        With expertise in both frontend and backend development, I specialize in creating robust web applications using modern technologies. My academic projects, including the comprehensive E-Commerce Website (Agro Craft), demonstrate my ability to handle full-stack development challenges and deliver quality software solutions.
+                    </p>
+                    
+                    <div class="education-timeline">
+                        <div class="education-item">
+                            <h4>Master of Science in Computer Science</h4>
+                            <p class="institution">Government Arts College (Autonomous) - Coimbatore</p>
+                            <p class="duration">September 2023 - April 2025</p>
+                            <p>An Autonomous Institution Affiliated to Bharathiar University. Focusing on advanced computer science concepts, software engineering principles, and modern development methodologies.</p>
+                        </div>
+                        
+                        <div class="education-item">
+                            <h4>Bachelor of Science in Information Technology</h4>
+                            <p class="institution">Arulmigu Kalasalingam College of Arts And Science - Krishnankoil</p>
+                            <p class="duration">September 2020 - April 2023</p>
+                            <p>Affiliated by Madurai Kamaraj University. Built a strong foundation in programming, database management, web development, and software engineering principles.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills">
+        <div class="container">
+            <div class="section-title">
+                <p class="subtitle">Explore My</p>
+                <h2>Skills & Technologies</h2>
+                <p>A comprehensive overview of my technical skills and expertise across different domains</p>
+            </div>
+            <div class="skills-grid fade-in-up">
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Frontend Development</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-name">HTML5</div>
+                            <div class="skill-level">Expert</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">CSS3</div>
+                            <div class="skill-level">Expert</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">JavaScript</div>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Bootstrap</div>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-server"></i> Backend Development</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-name">Python</div>
+                            <div class="skill-level">Expert</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Django</div>
+                            <div class="skill-level">Expert</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">FastAPI</div>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">MySQL</div>
+                            <div class="skill-level">Expert</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Tools & Technologies</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-name">Git & GitHub</div>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Excel</div>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">OOP</div>
+                            <div class="skill-level">Intermediate</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Testing</div>
+                            <div class="skill-level">Beginner</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects">
+        <div class="container">
+            <div class="section-title">
+                <p class="subtitle">Browse My Recent</p>
+                <h2>Featured Projects</h2>
+                <p>Showcasing my latest work and development projects with modern technologies</p>
+            </div>
+            <div class="projects-grid fade-in-up">
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>E-Commerce Website (Agro Craft)</h3>
+                        <p>A comprehensive e-commerce platform built with Django framework, featuring user authentication, product catalog, shopping cart functionality, order management, and secure payment integration. Specifically designed for agricultural products with modern UI/UX.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Maideen8081/project2" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <a href="#" onclick="showDemo('agro-craft')">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Modern Portfolio Website</h3>
+                        <p>A responsive and interactive portfolio website built with HTML5, CSS3, and JavaScript. Features smooth animations, mobile-first design, modern UI components, and optimized performance across all devices.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Maideen8081" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <a href="#" onclick="showDemo('portfolio')">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Data Management System</h3>
+                        <p>A comprehensive data management and analysis system built with Python and Django. Features real-time data visualization, advanced filtering options, export functionality, and interactive dashboards for business insights.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/Maideen8081" target="_blank">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                            <a href="#" onclick="showDemo('data-system')">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="section achievements">
+        <div class="container">
+            <div class="section-title">
+                <p class="subtitle">My</p>
+                <h2>Achievements & Recognition</h2>
+                <p>Awards and accomplishments that highlight my academic excellence and technical expertise</p>
+            </div>
+            <div class="achievements-grid fade-in-up">
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h3>First Prize - IoT Paper Presentation</h3>
+                    <p>Received first prize in a paper presentation on 'Internet of Things (IoT)' during college technical symposium. Demonstrated deep understanding of IoT architecture, sensor integration, data analytics, and innovative IoT solutions for real-world applications.</p>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>First Prize - AI Paper Presentation</h3>
+                    <p>Awarded first prize for presenting a comprehensive paper on 'Artificial Intelligence and Machine Learning' at college academic function. Showcased expertise in AI algorithms, neural networks, and practical AI implementations in modern software development.</p>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fas fa-bug"></i>
+                    </div>
+                    <h3>Programming Contest Participation</h3>
+                    <p>Actively participated in programming debugging events and coding competitions during college association functions. Demonstrated strong problem-solving skills, debugging expertise, and proficiency in multiple programming languages and frameworks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Certificates Section -->
+<section id="certificates" class="section certificates">
+    <div class="container">
+        <div class="section-title">
+            <p class="subtitle">My Learning Journey</p>
+            <h2>Certificates</h2>
+            <p>Professional certifications and courses that have enhanced my technical skills</p>
+        </div>
+        <div class="certificates-grid fade-in-up">
+            <div class="certificate-card">
+                <div class="certificate-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h3>Internship Completion Certificate</h3>
+                <p class="issuer">Issued by: 10X Scale.AI, Secunderabad, Telangana</p>
+                <p class="description">Completed a backend development internship focused on Python FastAPI, PostgreSQL, and Web scraping.</p>
+                <p class="duration"><i class="far fa-calendar-alt"></i> January 2025 – May 2025</p>
+            </div>
             
-          </div>
-          <div class="text-container">
-            <p>
-              Motivated and detail-oriented software developer with a solid foundation
-              in web technologies including HTML,CSS, PythonandDjangoframework.
-              Holder of a Bachelor's degree in Information Technology with distinction
-              and currently pursuing an MSc in Computer Science. Skilled in Git,
-              GitHub,Excel and experienced in developing projects like an Online Smart
-              Farmer Mandi Assistant. Eager to apply academic knowledge and
-              problem-solving skills to contribute to a dynamic IT team while
-              continually learning and adapting to new technologies.
-            </p>
-          </div>
+            <div class="certificate-card">
+                <div class="certificate-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h3>Python And Django Framework For Beginners</h3>
+                <p class="issuer">Issued by: Udemy</p>
+                <p class="description">Learned Python basics with hands-on exercises and mini projects. Gained foundational Django skills and built a simple CRUD web application.</p>
+                <p class="duration"><i class="far fa-calendar-alt"></i> December 7 2024</p>
+            </div>
         </div>
-      </div>
-      <img
-        src="./assert/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#experience'"
-      />
-    </section>
-    <section id="experience">
-      <p class="section__text__p1">Explore My</p>
-      <h1 class="title">Experience</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container">
-            <h2 class="experience-sub-title">Frontend Development</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assert/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>HTML</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assert/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>CSS</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assert/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>JavaScript</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assert/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Python</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assert/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Django Framework</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assert/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Bootstrap</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-            </div>
-          </div>
-          <div class="details-container">
-            <h2 class="experience-sub-title">Frontend Development</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assert/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>MYSQL Database</h3>
-                  <p>Experienced</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assert/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Excel</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assert/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>OOPS</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assert/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Git And GitHub</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assert/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#projects'"
-      />
-     
-    </section>
-    <section id="projects">
-      <p class="section__text__p1">Browse My Recent</p>
-      <h1 class="title">Projects</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assert/web1.jpg"
-                alt="Project 1"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Project One</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Maideen8081/project2.git'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Maideen8081/project2.git'"
-              >
-                Live Demo
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assert/web2.jpg"
-                alt="Project 2"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Project Two</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Maideen8081/project2.git'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Maideen8081/project2.git'"
-              >
-                Live Demo
-              </button>
-            </div>
-          </div>
-          <div class="details-container color-container">
-            <div class="article-container">
-              <img
-                src="./assert/web3.jpg"
-                alt="Project 3"
-                class="project-img"
-              />
-            </div>
-            <h2 class="experience-sub-title project-title">Project Three</h2>
-            <div class="btn-container">
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Maideen8081'"
-              >
-                Github
-              </button>
-              <button
-                class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/Maideen8081'"
-              >
-                Live Demo
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <img
-        src="./assert/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#contact'"
-      />
-      
-    </section>
-  <section id="Achivement">
-    <p class="section__text__p1"></p>
-    <h1 class="title">Achivement</h1>
-    <div class="section-container">
-      <div class="section__pic-container">
-        <img
-          src="./assert/demo.jpg"
-          alt="Profile picture"
-          class="about-pic"
-        />
-      </div>
-      <div class="about-details-container">
-        <div class="about-containers">
-          <div class="details-container">
-          
-          <br class="details-container">
-            <img
-              src="./assert/education.png"
-              alt="Education icon"
-              class="icon"
-            />
-            <h3 style="font-size: 24px;">Activity</h3>
-              <p style="font-size: 15px;text-align:justify">I received <span style="font-weight: bold ;color:black">first prize </span>in a paper
-                presentation on <span style="font-weight: bold ;color:black">'Internet of Things
-                  (IoT)'</span> during my college function,
-                demonstrating expertise in IoT,
-                technology
-                integration,
-                innovative solutions</p>
-              <br>
-              <p style="font-size: 15px; text-align:justify">I received <span style="font-weight: bold; color:black">first prize</span> in a paper
-                presentation
-                on <span style="font-weight: bold ;color:black">'Artificial
-                  Intelligence (AI)'</span> during my college
-                function, demonstrating expertise
-                in AI, technology integration, and
-                innovative solutions </p>
-                <br>
-                <p style="font-size: 15px;text-align:justify"> I participated in a program <span style="font-weight: bold ;color:black">debugging event</span>
-                   during mycollege
-                  association function, demonstrating
-                  myskills in debugging,
-                  problem-solving, and software
-                  development</p>
-            </div>
-                       
-          
-        </div>
-      </div>
     </div>
-  </section>
-    <section id="contact">
-      <p class="section__text__p1">Get in Touch</p>
-      <h1 class="title">Contact Me</h1>
-      <div class="contact-info-upper-container">
-        <div class="contact-info-container">
-          <img
-            src="./assert/email.png"
-            alt="Email icon"
-            class="icon contact-icon email-icon"
-          />
-          <p><a href="mailto:maideen8081@gmail.com">maideen8081@gmail.com</a></p>
+</section>
+
+<!-- Experience Section -->
+<section id="experience" class="section experience">
+    <div class="container">
+        <div class="section-title">
+            <p class="subtitle">Professional Journey</p>
+            <h2>Work Experience</h2>
+            <p>My professional roles and contributions in the tech industry</p>
         </div>
-        <div class="contact-info-container">
-          <img
-            src="./assert/linkedin.png"
-            alt="LinkedIn icon"
-            class="icon contact-icon"
-          />
-          <p><a href="https://www.linkedin.com">LinkedIn</a></p>
+        <div class="experience-timeline fade-in-up">
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3>Backend Development Intern</h3>
+                    <p class="company">10X Scale.AI, Secunderabad, Telangana</p>
+                    <p class="duration"><i class="far fa-calendar-alt"></i> 5 Months</p>
+                </div>
+                <div class="experience-content">
+                    <ul class="experience-list">
+                        <li><i class="fas fa-check-circle"></i> Worked on backend development using Python and FastAPI to build scalable RESTful APIs</li>
+                        <li><i class="fas fa-check-circle"></i> Integrated and managed PostgreSQL databases for data storage and retrieval</li>
+                        <li><i class="fas fa-check-circle"></i> Utilized Docker to containerize applications for consistent development and deployment</li>
+                        <li><i class="fas fa-check-circle"></i> Performed web scraping using Selenium and Playwright tools to extract structured data</li>
+                        <li><i class="fas fa-check-circle"></i> Collaborated using Git and GitHub for version control and team-based development</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h3>QA Engineer (Current)</h3>
+                    <p class="company">Working on End-to-End Testing</p>
+                    <p class="company">10X Scale.AI, Secunderabad, Telangana</p>
+                    <p class="duration"><i class="far fa-calendar-alt"></i> Present</p>
+                </div>
+                <div class="experience-content">
+                    <ul class="experience-list">
+                        <li><i class="fas fa-check-circle"></i> Currently working on QA in end-to-end testing using automation Cypress tool</li>
+                        <li><i class="fas fa-check-circle"></i> Developing and maintaining automated test scripts for web applications</li>
+                        <li><i class="fas fa-check-circle"></i> Implementing CI/CD pipelines for automated testing</li>
+                        <li><i class="fas fa-check-circle"></i> Collaborating with development teams to ensure software quality</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
-    </section>
-      
-    <footer>
-      <div class="icons"><img
-        src="./assert/facebook.png"
-        alt="LinkedIn icon"
-        class="icon contact-icon"
-      onclick="location.href='https://www.facebook.com/'"
-      />
-      
-      <div class="con"><img
-        src="./assert/twitter.jpg"
-        alt="LinkedIn icon"
-        class="icon contact-icon"
-        onclick="location.href='https://twitter.com/settings/account?lang=en'"
-      /></div>
-      <div class="con1"><img
-        src="./assert/instagram.png"
-        alt="LinkedIn icon"
-        class="icon contact-icon"
-        onclick="location.href='https://www.instagram.com/'"
-      /></div>
-      
     </div>
-      
-      <nav>
-        <div class="nav-links-container">
-          <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#Achivement">Achivement</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
+</section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-title">
+                <p class="subtitle">Get In Touch</p>
+                <h2>Contact Me</h2>
+                <p>Let's discuss opportunities, collaborations, or any questions you might have</p>
+            </div>
+            <div class="contact-content fade-in-up">
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p><a href="mailto:maideen8081@gmail.com">maideen8081@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <div>
+                            <h4>LinkedIn</h4>
+                            <p><a href="https://www.linkedin.com/in/thuvan-maideen-46b640331" target="_blank">Connect with me on LinkedIn</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <div>
+                            <h4>GitHub</h4>
+                            <p><a href="https://github.com/Maideen8081" target="_blank">View my projects on GitHub</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>Coimbatore, Tamil Nadu, India</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Send a Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
         </div>
-      </nav>
-      <p>Copyright &#169; 2024 ThuvanMaideen. All Rights Reserved.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-social">
+                <a href="https://www.facebook.com/" target="_blank" title="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://twitter.com/" target="_blank" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.instagram.com/" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/thuvan-maideen-46b640331" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/Maideen8081" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#achievements">Achievements</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <p>&copy; 2024 Thuvan Maideen. All Rights Reserved.</p>
+        </div>
     </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link, a[href^="#"]');
+            const sections = document.querySelectorAll('section[id]');
+            const navbar = document.getElementById('navbar');
+            const progressBar = document.getElementById('progressBar');
+            const mobileToggle = document.getElementById('mobileToggle');
+            
+            // Smooth scrolling
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId.startsWith('#')) {
+                        const targetSection = document.querySelector(targetId);
+                        if (targetSection) {
+                            const offsetTop = targetSection.offsetTop - 80;
+                            window.scrollTo({
+                                top: offsetTop,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // Active navigation highlighting
+            function updateActiveNav() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    const sectionHeight = section.offsetHeight;
+                    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            // Scroll progress bar
+            function updateProgressBar() {
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollPercent = (scrollTop / docHeight) * 100;
+                progressBar.style.width = scrollPercent + '%';
+            }
+            
+            // Navbar scroll effect
+            function updateNavbar() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            }
+            
+            // Scroll event listener
+            window.addEventListener('scroll', function() {
+                updateActiveNav();
+                updateProgressBar();
+                updateNavbar();
+            });
+            
+            // Mobile menu toggle
+            mobileToggle.addEventListener('click', function() {
+                // Add mobile menu functionality here
+                console.log('Mobile menu clicked');
+            });
+            
+            // Contact form submission
+            const contactForm = document.getElementById('contactForm');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form data
+                const formData = new FormData(contactForm);
+                const name = formData.get('name');
+                const email = formData.get('email');
+                const subject = formData.get('subject');
+                const message = formData.get('message');
+                
+                // Simple form validation
+                if (!name || !email || !subject || !message) {
+                    alert('Please fill in all fields.');
+                    return;
+                }
+                
+                // Simulate form submission
+                alert('Thank you for your message! I will get back to you soon.');
+                contactForm.reset();
+            });
+            
+            // Initialize
+            updateActiveNav();
+            updateProgressBar();
+            updateNavbar();
+        });
+        
+        // Download CV function
+        function downloadCV() {
+            alert('CV download functionality would be implemented here. Please contact me directly for my latest resume.');
+        }
+        
+        // Show demo function
+        function showDemo(projectName) {
+            const demos = {
+                'agro-craft': 'E-Commerce demo would open here',
+                'portfolio': 'Portfolio demo - you are currently viewing it!',
+                'data-system': 'Data management system demo would open here'
+            };
+            
+            alert(demos[projectName] || 'Demo functionality would be implemented here.');
+        }
+        
+        // Add fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all fade-in-up elements
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+        
+        // Typing animation for hero text
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+        
+        // Initialize typing animation
+        window.addEventListener('load', function() {
+            const heroTitle = document.querySelector('.hero-text h1');
+            if (heroTitle) {
+                const originalText = heroTitle.textContent;
+                typeWriter(heroTitle, originalText, 100);
+            }
+        });
+    </script>
     <script src="script.js"></script>
-  </body>
+</body>
 </html>
