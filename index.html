@@ -1,660 +1,635 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thuvan Maideen - QA Engineer & Full Stack Developer</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thuvan Maideen — QA Automation Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0a0e1a;
+    --bg-soft: #10162a;
+    --panel: #131a30;
+    --border: #232c47;
+    --text: #e7ebf7;
+    --text-dim: #8b93b0;
+    --violet: #8b5cf6;
+    --cyan: #22d3ee;
+    --coral: #fb5a7d;
+    --amber: #f5b942;
+    --mint: #34d399;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    overflow-x:hidden;
+    line-height:1.6;
+  }
+  ::selection{background:var(--violet); color:#fff;}
+
+  /* scrollbar */
+  ::-webkit-scrollbar{width:10px;}
+  ::-webkit-scrollbar-track{background:var(--bg);}
+  ::-webkit-scrollbar-thumb{background:linear-gradient(var(--cyan),var(--violet)); border-radius:6px;}
+
+  .wrap{max-width:1120px; margin:0 auto; padding:0 28px;}
+  section{position:relative; padding:120px 0;}
+
+  /* ---------- background ambiance ---------- */
+  .blob{position:fixed; border-radius:50%; filter:blur(90px); opacity:0.35; z-index:0; pointer-events:none;}
+  .blob-1{width:480px; height:480px; background:var(--violet); top:-150px; left:-150px; animation:float1 18s ease-in-out infinite;}
+  .blob-2{width:420px; height:420px; background:var(--cyan); top:30%; right:-180px; animation:float2 22s ease-in-out infinite;}
+  .blob-3{width:380px; height:380px; background:var(--coral); bottom:-160px; left:20%; animation:float3 20s ease-in-out infinite;}
+  @keyframes float1{0%,100%{transform:translate(0,0);} 50%{transform:translate(60px,80px);}}
+  @keyframes float2{0%,100%{transform:translate(0,0);} 50%{transform:translate(-70px,60px);}}
+  @keyframes float3{0%,100%{transform:translate(0,0);} 50%{transform:translate(50px,-60px);}}
+
+  .grid-overlay{
+    position:fixed; inset:0; z-index:0; pointer-events:none;
+    background-image:
+      linear-gradient(rgba(139,92,246,0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(139,92,246,0.05) 1px, transparent 1px);
+    background-size:56px 56px;
+    mask-image:radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+  }
+
+  main, header, footer{position:relative; z-index:1;}
+
+  /* ---------- nav ---------- */
+  nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(10,14,26,0.7);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--border);
+  }
+  nav .wrap{display:flex; align-items:center; justify-content:space-between; height:68px;}
+  .logo{font-family:var(--font-mono); font-weight:700; font-size:15px; letter-spacing:0.5px; color:var(--text); display:flex; align-items:center; gap:8px;}
+  .logo .dot{width:8px; height:8px; border-radius:50%; background:var(--mint); box-shadow:0 0 10px var(--mint); animation:pulse 2s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;} 50%{opacity:0.4;}}
+  .navlinks{display:flex; gap:32px; list-style:none;}
+  .navlinks a{color:var(--text-dim); text-decoration:none; font-size:14px; font-weight:500; transition:color .2s;}
+  .navlinks a:hover{color:var(--cyan);}
+  .nav-cta{
+    font-family:var(--font-mono); font-size:13px; padding:8px 16px; border-radius:8px;
+    border:1px solid var(--violet); color:var(--violet); text-decoration:none;
+    transition:all .25s;
+  }
+  .nav-cta:hover{background:var(--violet); color:#fff; box-shadow:0 0 20px rgba(139,92,246,.5);}
+  .navtoggle{display:none;}
+
+  /* ---------- hero ---------- */
+  header{min-height:100vh; display:flex; align-items:center; padding-top:68px;}
+  .eyebrow{
+    font-family:var(--font-mono); font-size:13px; color:var(--mint); letter-spacing:1px;
+    display:inline-flex; align-items:center; gap:8px; margin-bottom:20px;
+    border:1px solid rgba(52,211,153,0.35); background:rgba(52,211,153,0.08);
+    padding:6px 14px; border-radius:100px;
+  }
+  .hero-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px; align-items:center;}
+  h1.name{
+    font-family:var(--font-display); font-weight:700; font-size:clamp(38px,5.5vw,64px);
+    line-height:1.05; letter-spacing:-1px; margin-bottom:14px;
+  }
+  .grad-text{
+    background:linear-gradient(90deg, var(--cyan), var(--violet) 55%, var(--coral));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    background-size:200% auto; animation:shine 6s linear infinite;
+  }
+  @keyframes shine{to{background-position:200% center;}}
+  .role{font-family:var(--font-mono); font-size:17px; color:var(--text-dim); margin-bottom:26px;}
+  .role .cursor{display:inline-block; width:9px; height:19px; background:var(--cyan); margin-left:4px; animation:blink 1s step-end infinite; vertical-align:-3px;}
+  @keyframes blink{50%{opacity:0;}}
+  .hero-desc{color:var(--text-dim); font-size:15.5px; max-width:520px; margin-bottom:34px;}
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:34px;}
+  .btn{
+    font-family:var(--font-mono); font-size:14px; font-weight:500; padding:13px 24px; border-radius:10px;
+    text-decoration:none; display:inline-flex; align-items:center; gap:8px; transition:all .25s; border:1px solid transparent;
+  }
+  .btn-primary{background:linear-gradient(120deg, var(--violet), var(--cyan)); color:#fff;}
+  .btn-primary:hover{transform:translateY(-3px); box-shadow:0 12px 28px rgba(139,92,246,.35);}
+  .btn-ghost{border:1px solid var(--border); color:var(--text);}
+  .btn-ghost:hover{border-color:var(--cyan); color:var(--cyan); transform:translateY(-3px);}
+  .hero-meta{display:flex; gap:22px; flex-wrap:wrap;}
+  .hero-meta a{color:var(--text-dim); text-decoration:none; font-size:13.5px; display:flex; align-items:center; gap:6px; transition:color .2s;}
+  .hero-meta a:hover{color:var(--amber);}
+
+  /* terminal card */
+  .console{
+    background:var(--panel); border:1px solid var(--border); border-radius:14px; overflow:hidden;
+    box-shadow:0 30px 70px rgba(0,0,0,0.5);
+    animation:rise 1s ease-out;
+  }
+  @keyframes rise{from{opacity:0; transform:translateY(24px);} to{opacity:1; transform:translateY(0);}}
+  .console-bar{display:flex; align-items:center; gap:8px; padding:12px 16px; background:#0d1226; border-bottom:1px solid var(--border);}
+  .console-bar span{width:11px; height:11px; border-radius:50%;}
+  .console-bar span:nth-child(1){background:#fb5a7d;}
+  .console-bar span:nth-child(2){background:#f5b942;}
+  .console-bar span:nth-child(3){background:#34d399;}
+  .console-title{margin-left:8px; font-family:var(--font-mono); font-size:12px; color:var(--text-dim);}
+  .console-body{padding:22px 20px; font-family:var(--font-mono); font-size:13.5px; min-height:280px;}
+  .console-line{margin-bottom:10px; opacity:0; animation:fadeIn .4s forwards;}
+  .console-line .prompt{color:var(--cyan);}
+  .console-line .pass{color:var(--mint);}
+  .console-line .file{color:var(--text-dim);}
+  .console-summary{margin-top:16px; padding-top:14px; border-top:1px dashed var(--border); color:var(--amber); opacity:0; animation:fadeIn .4s forwards;}
+  @keyframes fadeIn{to{opacity:1;}}
+
+  /* ---------- section headers ---------- */
+  .kicker{
+    font-family:var(--font-mono); font-size:13px; color:var(--cyan); letter-spacing:2px; text-transform:uppercase; margin-bottom:10px;
+  }
+  .sec-title{font-family:var(--font-display); font-weight:700; font-size:clamp(28px,3.5vw,40px); margin-bottom:44px; letter-spacing:-0.5px;}
+
+  .reveal{opacity:0; transform:translateY(30px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ---------- about ---------- */
+  .about-grid{display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:start;}
+  .about-text p{color:var(--text-dim); font-size:15.5px; margin-bottom:16px;}
+  .about-text strong{color:var(--text); font-weight:600;}
+  .stat-cards{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .stat{
+    background:var(--panel); border:1px solid var(--border); border-radius:12px; padding:22px;
+    transition:transform .3s, border-color .3s;
+  }
+  .stat:hover{transform:translateY(-6px); border-color:var(--violet);}
+  .stat .num{font-family:var(--font-display); font-size:32px; font-weight:700;}
+  .stat .lbl{color:var(--text-dim); font-size:13px; margin-top:4px;}
+  .c1{color:var(--cyan);} .c2{color:var(--violet);} .c3{color:var(--coral);} .c4{color:var(--mint);}
+
+  /* ---------- skills ---------- */
+  .skill-cat{margin-bottom:30px;}
+  .skill-cat h3{font-family:var(--font-mono); font-size:13px; text-transform:uppercase; letter-spacing:1px; color:var(--text-dim); margin-bottom:14px;}
+  .tags{display:flex; flex-wrap:wrap; gap:10px;}
+  .tag{
+    font-family:var(--font-mono); font-size:13px; padding:8px 14px; border-radius:8px; border:1px solid var(--border);
+    background:var(--panel); transition:all .25s; cursor:default;
+  }
+  .tag:hover{transform:translateY(-4px) scale(1.04);}
+  .tag.t-cyan:hover{border-color:var(--cyan); color:var(--cyan); box-shadow:0 8px 20px rgba(34,211,238,.2);}
+  .tag.t-violet:hover{border-color:var(--violet); color:var(--violet); box-shadow:0 8px 20px rgba(139,92,246,.2);}
+  .tag.t-coral:hover{border-color:var(--coral); color:var(--coral); box-shadow:0 8px 20px rgba(251,90,125,.2);}
+  .tag.t-amber:hover{border-color:var(--amber); color:var(--amber); box-shadow:0 8px 20px rgba(245,185,66,.2);}
+  .tag.t-mint:hover{border-color:var(--mint); color:var(--mint); box-shadow:0 8px 20px rgba(52,211,153,.2);}
+
+  /* ---------- experience timeline ---------- */
+  .timeline{position:relative; padding-left:32px; border-left:2px solid var(--border);}
+  .tl-item{position:relative; margin-bottom:52px;}
+  .tl-item:last-child{margin-bottom:0;}
+  .tl-dot{
+    position:absolute; left:-41px; top:4px; width:18px; height:18px; border-radius:50%;
+    background:var(--bg); border:3px solid var(--mint); box-shadow:0 0 0 4px rgba(52,211,153,0.12);
+  }
+  .tl-head{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; margin-bottom:6px;}
+  .tl-role{font-family:var(--font-display); font-size:20px; font-weight:700;}
+  .tl-date{font-family:var(--font-mono); font-size:12.5px; color:var(--amber); background:rgba(245,185,66,0.08); border:1px solid rgba(245,185,66,0.3); padding:4px 10px; border-radius:100px; height:fit-content;}
+  .tl-org{color:var(--cyan); font-size:14.5px; margin-bottom:14px; font-weight:500;}
+  .tl-list{list-style:none;}
+  .tl-list li{position:relative; padding-left:22px; margin-bottom:10px; color:var(--text-dim); font-size:14.5px;}
+  .tl-list li::before{content:"✓"; position:absolute; left:0; color:var(--mint); font-family:var(--font-mono); font-weight:700;}
+
+  /* ---------- live products ---------- */
+  .live-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  .live-card{
+    background:var(--panel); border:1px solid var(--border); border-radius:14px; padding:24px;
+    transition:transform .35s, box-shadow .35s, border-color .35s; position:relative; overflow:hidden;
+  }
+  .live-card:hover{transform:translateY(-7px);}
+  .live-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;}
+  .live-icon{
+    width:38px; height:38px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-mono); font-weight:700; font-size:15px; color:#0a0e1a;
+  }
+  .live-status{font-family:var(--font-mono); font-size:11px; padding:4px 10px; border-radius:100px; border:1px solid; display:flex; align-items:center; gap:5px;}
+  .live-status::before{content:""; width:6px; height:6px; border-radius:50%; background:currentColor; box-shadow:0 0 6px currentColor;}
+  .live-title{font-family:var(--font-display); font-size:17px; font-weight:700; margin-bottom:8px;}
+  .live-desc{color:var(--text-dim); font-size:13.5px; margin-bottom:14px;}
+  .live-tags{display:flex; flex-wrap:wrap; gap:6px;}
+  .live-tag{font-family:var(--font-mono); font-size:11px; padding:4px 9px; border-radius:6px; background:rgba(255,255,255,0.04); color:var(--text-dim); border:1px solid var(--border);}
+
+  .lc-1 .live-icon{background:var(--cyan);}
+  .lc-1:hover{border-color:var(--cyan); box-shadow:0 20px 40px rgba(34,211,238,.15);}
+  .lc-1 .live-status{color:var(--cyan); border-color:rgba(34,211,238,.35); background:rgba(34,211,238,.08);}
+
+  .lc-2 .live-icon{background:var(--violet);}
+  .lc-2:hover{border-color:var(--violet); box-shadow:0 20px 40px rgba(139,92,246,.15);}
+  .lc-2 .live-status{color:var(--violet); border-color:rgba(139,92,246,.35); background:rgba(139,92,246,.08);}
+
+  .lc-3 .live-icon{background:var(--coral);}
+  .lc-3:hover{border-color:var(--coral); box-shadow:0 20px 40px rgba(251,90,125,.15);}
+  .lc-3 .live-status{color:var(--coral); border-color:rgba(251,90,125,.35); background:rgba(251,90,125,.08);}
+
+  .lc-4 .live-icon{background:var(--amber);}
+  .lc-4:hover{border-color:var(--amber); box-shadow:0 20px 40px rgba(245,185,66,.15);}
+  .lc-4 .live-status{color:var(--amber); border-color:rgba(245,185,66,.35); background:rgba(245,185,66,.08);}
+
+  .lc-5 .live-icon{background:var(--mint);}
+  .lc-5:hover{border-color:var(--mint); box-shadow:0 20px 40px rgba(52,211,153,.15);}
+  .lc-5 .live-status{color:var(--mint); border-color:rgba(52,211,153,.35); background:rgba(52,211,153,.08);}
+
+  .lc-6 .live-icon{background:var(--cyan);}
+  .lc-6:hover{border-color:var(--cyan); box-shadow:0 20px 40px rgba(34,211,238,.15);}
+  .lc-6 .live-status{color:var(--cyan); border-color:rgba(34,211,238,.35); background:rgba(34,211,238,.08);}
+
+  .lc-7 .live-icon{background:var(--violet);}
+  .lc-7:hover{border-color:var(--violet); box-shadow:0 20px 40px rgba(139,92,246,.15);}
+  .lc-7 .live-status{color:var(--violet); border-color:rgba(139,92,246,.35); background:rgba(139,92,246,.08);}
+
+  @media (max-width:1000px) and (min-width:861px){
+    .live-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:860px){
+    .live-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- projects ---------- */
+  .proj-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  .proj-card{
+    background:var(--panel); border:1px solid var(--border); border-radius:14px; padding:28px;
+    transition:transform .35s, box-shadow .35s, border-color .35s; position:relative; overflow:hidden;
+  }
+  .proj-card::before{
+    content:""; position:absolute; inset:0; opacity:0; transition:opacity .35s;
+    background:linear-gradient(135deg, rgba(139,92,246,0.12), rgba(34,211,238,0.08));
+  }
+  .proj-card:hover{transform:translateY(-8px); border-color:var(--violet); box-shadow:0 20px 45px rgba(0,0,0,.4);}
+  .proj-card:hover::before{opacity:1;}
+  .proj-card *{position:relative; z-index:1;}
+  .proj-title{font-family:var(--font-display); font-size:19px; font-weight:700; margin-bottom:10px;}
+  .proj-stack{font-family:var(--font-mono); font-size:12px; color:var(--coral); margin-bottom:14px;}
+  .proj-card ul{list-style:none;}
+  .proj-card li{position:relative; padding-left:18px; margin-bottom:8px; color:var(--text-dim); font-size:14px;}
+  .proj-card li::before{content:"›"; position:absolute; left:0; color:var(--cyan); font-weight:700;}
+
+  /* ---------- education / certs ---------- */
+  .edu-grid{display:grid; grid-template-columns:1fr 1fr; gap:22px;}
+  .card{background:var(--panel); border:1px solid var(--border); border-radius:14px; padding:26px; transition:border-color .3s, transform .3s;}
+  .card:hover{border-color:var(--cyan); transform:translateY(-5px);}
+  .card h3{font-family:var(--font-display); font-size:17px; margin-bottom:4px;}
+  .card .sub{color:var(--cyan); font-size:13.5px; margin-bottom:2px;}
+  .card .meta{font-family:var(--font-mono); color:var(--text-dim); font-size:12px; margin-bottom:12px;}
+  .card p, .card li{color:var(--text-dim); font-size:13.5px;}
+
+  /* ---------- contact / footer ---------- */
+  footer{padding:100px 0 50px; text-align:center;}
+  .contact-title{font-family:var(--font-display); font-size:clamp(30px,4.5vw,48px); font-weight:700; margin-bottom:18px;}
+  footer .hero-desc{margin:0 auto 34px;}
+  .foot-links{display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-bottom:60px;}
+  .copyright{color:var(--text-dim); font-size:13px; font-family:var(--font-mono);}
+
+  @media (max-width:860px){
+    .hero-grid, .about-grid, .proj-grid, .edu-grid, .live-grid{grid-template-columns:1fr;}
+    .navlinks{display:none;}
+    section{padding:80px 0;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+</style>
 </head>
 <body>
-    <!-- Progress Bar -->
-    <div class="progress-bar" id="progressBar"></div>
 
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="logo">Thuvan Maideen</div>
-            <ul class="nav-links">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#achievements" class="nav-link">Achievements</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="mobile-toggle" id="mobileToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
+<div class="grid-overlay"></div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content" style="margin-top: 100px;">
-            <div class="hero-text fade-in-up">
-                <p class="greeting">👋 Hello, I'm</p>
-                <h1 style="font-size: 53px;">Thuvan Maideen</h1>
-                <p class="role">Aspiring QA Engineer & Full Stack Developer</p>
-                <p class="description">
-                    Motivated and detail-oriented software developer with a strong academic foundation and hands-on experience in web development. Passionate about quality assurance, testing methodologies, and delivering high-quality software solutions that meet user needs and business requirements.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">
-                        <i class="fas fa-envelope"></i>
-                        Get In Touch
-                    </a>
-                    <a href="assert/thuvanmaideen.pdf" class="btn btn-outline" onclick="downloadCV()">
-                        <i class="fas fa-download"></i>
-                        Download CV
-                    </a>
-                </div>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/thuvan-maideen-46b640331" target="_blank" title="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://github.com/Maideen8081" target="_blank" title="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="mailto:maideen8081@gmail.com" title="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://twitter.com/" target="_blank" title="Twitter">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                </div>
-            </div>
-           <div class="hero-image fade-in-up">
-    <div class="profile-card">
-        <div class="profile-img">
-            <!-- Replace the icon with your image -->
-            <img src="assert/profile.png" alt="Thuvan Maideen" class="profile-photo">
-        </div>
-        <div class="status-indicator">
-            <div class="status-dot"></div>
-            <span>Available for opportunities</span>
-        </div>
+<nav>
+  <div class="wrap">
+    <div class="logo"><span class="dot"></span>THUVAN.QA</div>
+    <ul class="navlinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#live-projects">Live Products</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+    </ul>
+    <a class="nav-cta" href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow"><span>●</span> OPEN TO OPPORTUNITIES</div>
+      <h1 class="name">Thuvan Maideen</h1>
+      <h1 class="name grad-text">Breaks software before users do.</h1>
+      <div class="role">QA Automation Engineer<span class="cursor"></span></div>
+      <p class="hero-desc">1.5+ years delivering full SDLC/STLC quality assurance across 6+ live projects — manual testing, Playwright &amp; Cypress automation, API &amp; database validation, with a backend developer's eye for how things actually break.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#contact">Let's talk →</a>
+        <a class="btn btn-ghost" href="#experience">View experience</a>
+      </div>
+      <div class="hero-meta">
+        <a href="mailto:maideen8081@gmail.com">✉ maideen8081@gmail.com</a>
+        <a href="tel:+919080575858">☎ +91 90805 75858</a>
+        <a href="https://linkedin.com/in/thuvanmaideen8081" target="_blank" rel="noopener">in/thuvanmaideen8081</a>
+        <a href="https://github.com/Maideen8081" target="_blank" rel="noopener">github/Maideen8081</a>
+      </div>
     </div>
-</div>
-        </div>
-    </section>
 
-    <!-- About Section -->
-    <section id="about" class="section about">
-        <div class="container">
-            <div class="section-title">
-                <p class="subtitle">Get To Know More</p>
-                <h2>About Me</h2>
-                <p>Discover my journey, education, and passion for technology and quality assurance</p>
-            </div>
-            <div class="about-content fade-in-up">
-                <div class="about-image">
-                    <div class="about-avatar">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                </div>
-                <div class="about-text">
-                    <h3>My Story & Background</h3>
-                    <p>
-                        I am a passionate and detail-oriented software developer with a strong academic foundation in Information Technology and Computer Science. My journey in technology has been driven by curiosity, continuous learning, and a desire to create meaningful digital solutions that make a difference.
-                    </p>
-                    <p>
-                        With expertise in both frontend and backend development, I specialize in creating robust web applications using modern technologies. My academic projects, including the comprehensive E-Commerce Website (Agro Craft), demonstrate my ability to handle full-stack development challenges and deliver quality software solutions.
-                    </p>
-                    
-                    <div class="education-timeline">
-                        <div class="education-item">
-                            <h4>Master of Science in Computer Science</h4>
-                            <p class="institution">Government Arts College (Autonomous) - Coimbatore</p>
-                            <p class="duration">September 2023 - April 2025</p>
-                            <p>An Autonomous Institution Affiliated to Bharathiar University. Focusing on advanced computer science concepts, software engineering principles, and modern development methodologies.</p>
-                        </div>
-                        
-                        <div class="education-item">
-                            <h4>Bachelor of Science in Information Technology</h4>
-                            <p class="institution">Arulmigu Kalasalingam College of Arts And Science - Krishnankoil</p>
-                            <p class="duration">September 2020 - April 2023</p>
-                            <p>Affiliated by Madurai Kamaraj University. Built a strong foundation in programming, database management, web development, and software engineering principles.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section skills">
-        <div class="container">
-            <div class="section-title">
-                <p class="subtitle">Explore My</p>
-                <h2>Skills & Technologies</h2>
-                <p>A comprehensive overview of my technical skills and expertise across different domains</p>
-            </div>
-            <div class="skills-grid fade-in-up">
-                <div class="skill-category">
-                    <h3><i class="fas fa-code"></i> Frontend Development</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <div class="skill-name">HTML5</div>
-                            <div class="skill-level">Expert</div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">CSS3</div>
-                            <div class="skill-level">Expert</div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">JavaScript</div>
-                            <div class="skill-level">Intermediate</div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">Bootstrap</div>
-                            <div class="skill-level">Intermediate</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3><i class="fas fa-server"></i> Backend Development</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <div class="skill-name">Python</div>
-                            <div class="skill-level">Expert</div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">Django</div>
-                            <div class="skill-level">Expert</div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">FastAPI</div>
-                            <div class="skill-level">Intermediate</div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">MySQL</div>
-                            <div class="skill-level">Expert</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3><i class="fas fa-tools"></i> Tools & Technologies</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <div class="skill-name">Git & GitHub</div>
-                            <div class="skill-level">Intermediate</div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">Excel</div>
-                            <div class="skill-level">Intermediate</div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">OOP</div>
-                            <div class="skill-level">Intermediate</div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">Testing</div>
-                            <div class="skill-level">Beginner</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section projects">
-        <div class="container">
-            <div class="section-title">
-                <p class="subtitle">Browse My Recent</p>
-                <h2>Featured Projects</h2>
-                <p>Showcasing my latest work and development projects with modern technologies</p>
-            </div>
-            <div class="projects-grid fade-in-up">
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-shopping-cart"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>E-Commerce Website (Agro Craft)</h3>
-                        <p>A comprehensive e-commerce platform built with Django framework, featuring user authentication, product catalog, shopping cart functionality, order management, and secure payment integration. Specifically designed for agricultural products with modern UI/UX.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/Maideen8081/project2" target="_blank">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                            <a href="#" onclick="showDemo('agro-craft')">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Modern Portfolio Website</h3>
-                        <p>A responsive and interactive portfolio website built with HTML5, CSS3, and JavaScript. Features smooth animations, mobile-first design, modern UI components, and optimized performance across all devices.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/Maideen8081" target="_blank">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                            <a href="#" onclick="showDemo('portfolio')">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-image">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Data Management System</h3>
-                        <p>A comprehensive data management and analysis system built with Python and Django. Features real-time data visualization, advanced filtering options, export functionality, and interactive dashboards for business insights.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/Maideen8081" target="_blank">
-                                <i class="fab fa-github"></i> GitHub
-                            </a>
-                            <a href="#" onclick="showDemo('data-system')">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Achievements Section -->
-    <section id="achievements" class="section achievements">
-        <div class="container">
-            <div class="section-title">
-                <p class="subtitle">My</p>
-                <h2>Achievements & Recognition</h2>
-                <p>Awards and accomplishments that highlight my academic excellence and technical expertise</p>
-            </div>
-            <div class="achievements-grid fade-in-up">
-                <div class="achievement-card">
-                    <div class="achievement-icon">
-                        <i class="fas fa-trophy"></i>
-                    </div>
-                    <h3>First Prize - IoT Paper Presentation</h3>
-                    <p>Received first prize in a paper presentation on 'Internet of Things (IoT)' during college technical symposium. Demonstrated deep understanding of IoT architecture, sensor integration, data analytics, and innovative IoT solutions for real-world applications.</p>
-                </div>
-                
-                <div class="achievement-card">
-                    <div class="achievement-icon">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <h3>First Prize - AI Paper Presentation</h3>
-                    <p>Awarded first prize for presenting a comprehensive paper on 'Artificial Intelligence and Machine Learning' at college academic function. Showcased expertise in AI algorithms, neural networks, and practical AI implementations in modern software development.</p>
-                </div>
-                
-                <div class="achievement-card">
-                    <div class="achievement-icon">
-                        <i class="fas fa-bug"></i>
-                    </div>
-                    <h3>Programming Contest Participation</h3>
-                    <p>Actively participated in programming debugging events and coding competitions during college association functions. Demonstrated strong problem-solving skills, debugging expertise, and proficiency in multiple programming languages and frameworks.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Certificates Section -->
-<section id="certificates" class="section certificates">
-    <div class="container">
-        <div class="section-title">
-            <p class="subtitle">My Learning Journey</p>
-            <h2>Certificates</h2>
-            <p>Professional certifications and courses that have enhanced my technical skills</p>
-        </div>
-        <div class="certificates-grid fade-in-up">
-            <div class="certificate-card">
-                <div class="certificate-icon">
-                    <i class="fas fa-certificate"></i>
-                </div>
-                <h3>Internship Completion Certificate</h3>
-                <p class="issuer">Issued by: 10X Scale.AI, Secunderabad, Telangana</p>
-                <p class="description">Completed a backend development internship focused on Python FastAPI, PostgreSQL, and Web scraping.</p>
-                <p class="duration"><i class="far fa-calendar-alt"></i> January 2025 – May 2025</p>
-            </div>
-            
-            <div class="certificate-card">
-                <div class="certificate-icon">
-                    <i class="fas fa-certificate"></i>
-                </div>
-                <h3>Python And Django Framework For Beginners</h3>
-                <p class="issuer">Issued by: Udemy</p>
-                <p class="description">Learned Python basics with hands-on exercises and mini projects. Gained foundational Django skills and built a simple CRUD web application.</p>
-                <p class="duration"><i class="far fa-calendar-alt"></i> December 7 2024</p>
-            </div>
-        </div>
+    <div class="console">
+      <div class="console-bar"><span></span><span></span><span></span><div class="console-title">test-run — hire10x-suite</div></div>
+      <div class="console-body" id="consoleBody"></div>
     </div>
-</section>
+  </div>
+</header>
 
-<!-- Experience Section -->
-<section id="experience" class="section experience">
-    <div class="container">
-        <div class="section-title">
-            <p class="subtitle">Professional Journey</p>
-            <h2>Work Experience</h2>
-            <p>My professional roles and contributions in the tech industry</p>
+<main>
+  <section id="about">
+    <div class="wrap about-grid">
+      <div class="reveal">
+        <div class="kicker">01 / About</div>
+        <h2 class="sec-title">Quality is the feature.</h2>
+        <div class="about-text">
+          <p>I'm a <strong>QA Automation Engineer at 10X Scale.AI</strong>, running full SDLC and STLC quality cycles across six-plus live products — Hire10X, Industry Pilot, Resume Pilot, Career Pilot, Task Pilot, Virtual TryOn, and NSTI Mobile.</p>
+          <p>My day-to-day spans <strong>manual testing</strong> (functional, regression, integration, smoke, sanity, E2E, UAT, exploratory), <strong>automation</strong> with Playwright (TypeScript) and Cypress (JavaScript), <strong>mobile testing</strong> with Appium, and <strong>API/database validation</strong> using Postman, Swagger, MySQL, and PostgreSQL.</p>
+          <p>I built a session-reuse and parallel-execution strategy that cut automation run time by <strong>~40%</strong> — and because I've also worked as a backend developer (Python, FastAPI, Django), I test with a builder's understanding of where things actually break.</p>
         </div>
-        <div class="experience-timeline fade-in-up">
-            <div class="experience-item">
-                <div class="experience-header">
-                    <h3>Backend Development Intern</h3>
-                    <p class="company">10X Scale.AI, Secunderabad, Telangana</p>
-                    <p class="duration"><i class="far fa-calendar-alt"></i> 5 Months</p>
-                </div>
-                <div class="experience-content">
-                    <ul class="experience-list">
-                        <li><i class="fas fa-check-circle"></i> Worked on backend development using Python and FastAPI to build scalable RESTful APIs</li>
-                        <li><i class="fas fa-check-circle"></i> Integrated and managed PostgreSQL databases for data storage and retrieval</li>
-                        <li><i class="fas fa-check-circle"></i> Utilized Docker to containerize applications for consistent development and deployment</li>
-                        <li><i class="fas fa-check-circle"></i> Performed web scraping using Selenium and Playwright tools to extract structured data</li>
-                        <li><i class="fas fa-check-circle"></i> Collaborated using Git and GitHub for version control and team-based development</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="experience-item">
-                <div class="experience-header">
-                    <h3>QA Engineer (Current)</h3>
-                    <p class="company">Working on End-to-End Testing</p>
-                    <p class="company">10X Scale.AI, Secunderabad, Telangana</p>
-                    <p class="duration"><i class="far fa-calendar-alt"></i> Present</p>
-                </div>
-                <div class="experience-content">
-                    <ul class="experience-list">
-                        <li><i class="fas fa-check-circle"></i> Currently working on QA in end-to-end testing using automation Cypress tool</li>
-                        <li><i class="fas fa-check-circle"></i> Developing and maintaining automated test scripts for web applications</li>
-                        <li><i class="fas fa-check-circle"></i> Implementing CI/CD pipelines for automated testing</li>
-                        <li><i class="fas fa-check-circle"></i> Collaborating with development teams to ensure software quality</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+      </div>
+      <div class="stat-cards reveal">
+        <div class="stat"><div class="num c1">1.5+</div><div class="lbl">Years in QA</div></div>
+        <div class="stat"><div class="num c2">6+</div><div class="lbl">Live projects</div></div>
+        <div class="stat"><div class="num c3">100+</div><div class="lbl">Defects tracked in JIRA</div></div>
+        <div class="stat"><div class="num c4">~40%</div><div class="lbl">Faster automation runs</div></div>
+      </div>
     </div>
-</section>
+  </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section contact">
-        <div class="container">
-            <div class="section-title">
-                <p class="subtitle">Get In Touch</p>
-                <h2>Contact Me</h2>
-                <p>Let's discuss opportunities, collaborations, or any questions you might have</p>
-            </div>
-            <div class="contact-content fade-in-up">
-                <div class="contact-info">
-                    <h3>Let's Connect</h3>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p><a href="mailto:maideen8081@gmail.com">maideen8081@gmail.com</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-linkedin"></i>
-                        <div>
-                            <h4>LinkedIn</h4>
-                            <p><a href="https://www.linkedin.com/in/thuvan-maideen-46b640331" target="_blank">Connect with me on LinkedIn</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-github"></i>
-                        <div>
-                            <h4>GitHub</h4>
-                            <p><a href="https://github.com/Maideen8081" target="_blank">View my projects on GitHub</a></p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Location</h4>
-                            <p>Coimbatore, Tamil Nadu, India</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contact-form">
-                    <h3>Send a Message</h3>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i>
-                            Send Message
-                        </button>
-                    </form>
-                </div>
-            </div>
+  <section id="skills">
+    <div class="wrap">
+      <div class="kicker reveal">02 / Skills</div>
+      <h2 class="sec-title reveal">What I test with.</h2>
+
+      <div class="skill-cat reveal">
+        <h3>Manual Testing</h3>
+        <div class="tags">
+          <span class="tag t-cyan">Functional</span><span class="tag t-cyan">Regression</span><span class="tag t-cyan">Integration</span>
+          <span class="tag t-cyan">Smoke &amp; Sanity</span><span class="tag t-cyan">E2E</span><span class="tag t-cyan">UAT</span>
+          <span class="tag t-cyan">Cross-Browser</span><span class="tag t-cyan">Exploratory</span>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-social">
-                <a href="https://www.facebook.com/" target="_blank" title="Facebook">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="https://twitter.com/" target="_blank" title="Twitter">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="https://www.instagram.com/" target="_blank" title="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/thuvan-maideen-46b640331" target="_blank" title="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a href="https://github.com/Maideen8081" target="_blank" title="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-            </div>
-            
-            <div class="footer-nav">
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#achievements">Achievements</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-            
-            <p>&copy; 2024 Thuvan Maideen. All Rights Reserved.</p>
+      </div>
+      <div class="skill-cat reveal">
+        <h3>Automation</h3>
+        <div class="tags">
+          <span class="tag t-violet">Playwright (TypeScript)</span><span class="tag t-violet">Cypress (JavaScript)</span>
+          <span class="tag t-violet">Appium (Android)</span><span class="tag t-violet">Page Object Model</span>
         </div>
-    </footer>
+      </div>
+      <div class="skill-cat reveal">
+        <h3>API &amp; Database</h3>
+        <div class="tags">
+          <span class="tag t-coral">Postman</span><span class="tag t-coral">Swagger</span><span class="tag t-coral">REST Validation</span>
+          <span class="tag t-coral">OAuth / JWT</span><span class="tag t-coral">MySQL</span><span class="tag t-coral">PostgreSQL</span><span class="tag t-coral">SQL Queries</span>
+        </div>
+      </div>
+      <div class="skill-cat reveal">
+        <h3>QA Methodology</h3>
+        <div class="tags">
+          <span class="tag t-amber">SDLC / STLC</span><span class="tag t-amber">Test Strategy</span><span class="tag t-amber">RTM</span>
+          <span class="tag t-amber">Defect Lifecycle</span><span class="tag t-amber">RCA</span><span class="tag t-amber">Risk-Based Testing</span>
+          <span class="tag t-amber">Agile / Scrum</span>
+        </div>
+      </div>
+      <div class="skill-cat reveal">
+        <h3>Dev &amp; Tooling</h3>
+        <div class="tags">
+          <span class="tag t-mint">Python</span><span class="tag t-mint">FastAPI</span><span class="tag t-mint">Django</span>
+          <span class="tag t-mint">Git / GitHub Actions</span><span class="tag t-mint">Docker</span><span class="tag t-mint">JIRA</span>
+          <span class="tag t-mint">Claude AI · Copilot · ChatGPT</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('.nav-link, a[href^="#"]');
-            const sections = document.querySelectorAll('section[id]');
-            const navbar = document.getElementById('navbar');
-            const progressBar = document.getElementById('progressBar');
-            const mobileToggle = document.getElementById('mobileToggle');
-            
-            // Smooth scrolling
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    if (targetId.startsWith('#')) {
-                        const targetSection = document.querySelector(targetId);
-                        if (targetSection) {
-                            const offsetTop = targetSection.offsetTop - 80;
-                            window.scrollTo({
-                                top: offsetTop,
-                                behavior: 'smooth'
-                            });
-                        }
-                    }
-                });
-            });
-            
-            // Active navigation highlighting
-            function updateActiveNav() {
-                let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop - 100;
-                    const sectionHeight = section.offsetHeight;
-                    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                        current = section.getAttribute('id');
-                    }
-                });
-                
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === '#' + current) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-            
-            // Scroll progress bar
-            function updateProgressBar() {
-                const scrollTop = window.scrollY;
-                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-                const scrollPercent = (scrollTop / docHeight) * 100;
-                progressBar.style.width = scrollPercent + '%';
-            }
-            
-            // Navbar scroll effect
-            function updateNavbar() {
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-            }
-            
-            // Scroll event listener
-            window.addEventListener('scroll', function() {
-                updateActiveNav();
-                updateProgressBar();
-                updateNavbar();
-            });
-            
-            // Mobile menu toggle
-            mobileToggle.addEventListener('click', function() {
-                // Add mobile menu functionality here
-                console.log('Mobile menu clicked');
-            });
-            
-            // Contact form submission
-            const contactForm = document.getElementById('contactForm');
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Get form data
-                const formData = new FormData(contactForm);
-                const name = formData.get('name');
-                const email = formData.get('email');
-                const subject = formData.get('subject');
-                const message = formData.get('message');
-                
-                // Simple form validation
-                if (!name || !email || !subject || !message) {
-                    alert('Please fill in all fields.');
-                    return;
-                }
-                
-                // Simulate form submission
-                alert('Thank you for your message! I will get back to you soon.');
-                contactForm.reset();
-            });
-            
-            // Initialize
-            updateActiveNav();
-            updateProgressBar();
-            updateNavbar();
-        });
-        
-        // Download CV function
-        function downloadCV() {
-            alert('CV download functionality would be implemented here. Please contact me directly for my latest resume.');
-        }
-        
-        // Show demo function
-        function showDemo(projectName) {
-            const demos = {
-                'agro-craft': 'E-Commerce demo would open here',
-                'portfolio': 'Portfolio demo - you are currently viewing it!',
-                'data-system': 'Data management system demo would open here'
-            };
-            
-            alert(demos[projectName] || 'Demo functionality would be implemented here.');
-        }
-        
-        // Add fade-in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-        
-        // Observe all fade-in-up elements
-        document.querySelectorAll('.fade-in-up').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
-        });
-        
-        // Typing animation for hero text
-        function typeWriter(element, text, speed = 100) {
-            let i = 0;
-            element.innerHTML = '';
-            
-            function type() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                }
-            }
-            type();
-        }
-        
-        // Initialize typing animation
-        window.addEventListener('load', function() {
-            const heroTitle = document.querySelector('.hero-text h1');
-            if (heroTitle) {
-                const originalText = heroTitle.textContent;
-                typeWriter(heroTitle, originalText, 100);
-            }
-        });
-    </script>
-    <script src="script.js"></script>
+  <section id="experience">
+    <div class="wrap">
+      <div class="kicker reveal">03 / Experience</div>
+      <h2 class="sec-title reveal">Where I've shipped quality.</h2>
+
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-head">
+            <div class="tl-role">QA Engineer</div>
+            <div class="tl-date">Jan 2025 — Present</div>
+          </div>
+          <div class="tl-org">10X Scale.AI · Secunderabad, Telangana</div>
+          <ul class="tl-list">
+            <li>Ran manual + automation testing across 6+ live projects with zero critical defect leakage to production.</li>
+            <li>Authored Test Strategy, Test Plans, Test Cases, and RTM documentation for every project.</li>
+            <li>Logged and tracked 100+ defects in JIRA through the full defect lifecycle, including RCA and retesting.</li>
+            <li>Validated REST APIs via Postman/Swagger — endpoints, payloads, status codes, OAuth/JWT flows.</li>
+            <li>Built a Cypress E2E framework for Hire10X and Playwright frameworks for Industry Pilot, Career Pilot &amp; Resume Pilot.</li>
+            <li>Cut automation execution time ~40% with a session-reuse strategy and parallel test execution.</li>
+            <li>Automated Android regression flows for NSTI Mobile using Appium.</li>
+          </ul>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-head">
+            <div class="tl-role">Backend Development Intern</div>
+            <div class="tl-date">Aug 2024 — Dec 2024</div>
+          </div>
+          <div class="tl-org">10X Scale.AI · Secunderabad, Telangana</div>
+          <ul class="tl-list">
+            <li>Built RESTful CRUD APIs for Industry Pilot using Python (FastAPI), with validation and error handling.</li>
+            <li>Designed ID-based endpoints and tested edge cases for invalid or missing resource IDs.</li>
+            <li>Designed and optimized PostgreSQL schemas and complex queries for Industry Pilot.</li>
+            <li>Built Playwright-based web scraping pipelines, exposing scraped data via GET endpoints.</li>
+            <li>Containerized services with Docker; contributed via feature branches, PRs, and code reviews.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="live-projects">
+    <div class="wrap">
+      <div class="kicker reveal">04 / Live Products</div>
+      <h2 class="sec-title reveal">What I'm testing right now at 10X Scale.AI.</h2>
+      <div class="live-grid">
+
+        <div class="live-card lc-1 reveal">
+          <div class="live-top"><div class="live-icon">H</div><div class="live-status">In Production</div></div>
+          <div class="live-title">Hire10X</div>
+          <div class="live-desc">Recruitment platform. Own the Cypress E2E regression suite covering critical hiring flows end-to-end.</div>
+          <div class="live-tags"><span class="live-tag">Cypress</span><span class="live-tag">POM</span><span class="live-tag">Regression</span></div>
+        </div>
+
+        <div class="live-card lc-2 reveal">
+          <div class="live-top"><div class="live-icon">IP</div><div class="live-status">In Production</div></div>
+          <div class="live-title">Industry Pilot</div>
+          <div class="live-desc">Backend built during my internship (FastAPI + PostgreSQL); now cover it with Playwright UI automation and API/DB validation.</div>
+          <div class="live-tags"><span class="live-tag">Playwright</span><span class="live-tag">API Testing</span><span class="live-tag">PostgreSQL</span></div>
+        </div>
+
+        <div class="live-card lc-3 reveal">
+          <div class="live-top"><div class="live-icon">RP</div><div class="live-status">In Production</div></div>
+          <div class="live-title">Resume Pilot</div>
+          <div class="live-desc">Resume-building &amp; parsing product. Playwright automation across form flows, uploads, and authentication.</div>
+          <div class="live-tags"><span class="live-tag">Playwright</span><span class="live-tag">Functional</span><span class="live-tag">E2E</span></div>
+        </div>
+
+        <div class="live-card lc-4 reveal">
+          <div class="live-top"><div class="live-icon">IN</div><div class="live-status">In Production</div></div>
+          <div class="live-title">Interview Pilot</div>
+          <div class="live-desc">Interview simulation &amp; assessment platform. Manual and regression testing across scheduling, scoring, and feedback flows.</div>
+          <div class="live-tags"><span class="live-tag">Manual QA</span><span class="live-tag">Regression</span><span class="live-tag">UAT</span></div>
+        </div>
+
+        <div class="live-card lc-5 reveal">
+          <div class="live-top"><div class="live-icon">TP</div><div class="live-status">In Production</div></div>
+          <div class="live-title">Task Pilot</div>
+          <div class="live-desc">Task &amp; workflow management tool. Functional, integration, and smoke testing across sprint cycles.</div>
+          <div class="live-tags"><span class="live-tag">Functional</span><span class="live-tag">Integration</span><span class="live-tag">Smoke</span></div>
+        </div>
+
+        <div class="live-card lc-6 reveal">
+          <div class="live-top"><div class="live-icon">VT</div><div class="live-status">In Production</div></div>
+          <div class="live-title">Virtual TryOn</div>
+          <div class="live-desc">AR/virtual try-on experience. UI, cross-browser, and exploratory testing to catch rendering and interaction edge cases.</div>
+          <div class="live-tags"><span class="live-tag">UI Testing</span><span class="live-tag">Cross-Browser</span><span class="live-tag">Exploratory</span></div>
+        </div>
+
+        <div class="live-card lc-7 reveal">
+          <div class="live-top"><div class="live-icon">M</div><div class="live-status">In Production</div></div>
+          <div class="live-title">NSTI Mobile Application</div>
+          <div class="live-desc">Android application. Appium automation covering key user journeys and regression flows on real devices.</div>
+          <div class="live-tags"><span class="live-tag">Appium</span><span class="live-tag">Android</span><span class="live-tag">Regression</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="kicker reveal">05 / Side Projects</div>
+      <h2 class="sec-title reveal">Things I've built to test the limits.</h2>
+      <div class="proj-grid">
+        <div class="proj-card reveal">
+          <div class="proj-title">Open Source QA Automation Suite</div>
+          <div class="proj-stack">Playwright · TypeScript · E2E Automation</div>
+          <ul>
+            <li>Full end-to-end framework covering real-world web app testing scenarios, public on GitHub.</li>
+            <li>Page Object Model architecture for modular, reusable test suites.</li>
+            <li>Parallel execution across Chromium, Firefox &amp; WebKit from one codebase.</li>
+            <li>Session-reuse auth state cut suite run time by ~40%.</li>
+            <li>GitHub Actions CI/CD pipeline running tests on every pull request.</li>
+          </ul>
+        </div>
+        <div class="proj-card reveal">
+          <div class="proj-title">AgroCraft — Farm E-Commerce Platform</div>
+          <div class="proj-stack">Django · MySQL · Bootstrap · RBAC</div>
+          <ul>
+            <li>Full-stack marketplace connecting farmers directly to consumers.</li>
+            <li>Normalized MySQL schema across Products, Users, Orders &amp; Delivery.</li>
+            <li>Role-Based Access Control tested across four roles: Admin, Farmer, Customer, Labor.</li>
+            <li>Verified cart, order tracking, filters &amp; payment flows end-to-end.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <div class="kicker reveal">06 / Education &amp; Certifications</div>
+      <h2 class="sec-title reveal">Foundations.</h2>
+      <div class="edu-grid">
+        <div class="card reveal">
+          <h3>M.Sc. Computer Science</h3>
+          <div class="sub">Government Arts College (Autonomous), Coimbatore</div>
+          <div class="meta">2023 – 2025 · Aggregate 74%</div>
+          <p>Software Engineering, Database Systems, Networks. Final project: AgroCraft — Django e-commerce with RBAC.</p>
+        </div>
+        <div class="card reveal">
+          <h3>B.Sc. Information Technology</h3>
+          <div class="sub">Arulmigu Kalasalingam College of Arts &amp; Science</div>
+          <div class="meta">2020 – 2023 · 83% — First Class Distinction</div>
+          <p>Python &amp; Java programming, SQL database design, web development, networking, operating systems.</p>
+        </div>
+        <div class="card reveal">
+          <h3>Backend Development Internship Certificate</h3>
+          <div class="sub">10X Scale.AI</div>
+          <div class="meta">Aug 2024 – Dec 2024</div>
+          <p>Hands-on FastAPI, PostgreSQL design, Docker, and web scraping — building production-level backend APIs.</p>
+        </div>
+        <div class="card reveal">
+          <h3>Python &amp; Django Framework for Beginners</h3>
+          <div class="sub">Udemy</div>
+          <div class="meta">Dec 2024</div>
+          <p>Python fundamentals, OOP, Django MVT, ORM, and a full capstone application.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="kicker reveal" style="justify-content:center; display:flex;">07 / Contact</div>
+    <h2 class="contact-title reveal">Got a build that needs breaking?</h2>
+    <p class="hero-desc reveal">I'm open to QA Automation and SDET roles. Reach out — I usually reply within a day.</p>
+    <div class="foot-links reveal">
+      <a class="btn btn-primary" href="mailto:maideen8081@gmail.com">✉ maideen8081@gmail.com</a>
+      <a class="btn btn-ghost" href="tel:+919080575858">☎ +91 90805 75858</a>
+      <a class="btn btn-ghost" href="https://linkedin.com/in/thuvanmaideen8081" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-ghost" href="https://github.com/Maideen8081" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="copyright">© 2026 Thuvan Maideen · Virudhunagar, Tamil Nadu, India</div>
+  </div>
+</footer>
+
+<script>
+  // scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.12});
+  revealEls.forEach(el => io.observe(el));
+
+  // terminal typing sequence
+  const lines = [
+    {t:'$ npm run test:suite --project=hire10x', cls:'prompt'},
+    {t:'✓ Manual Testing (Functional, Regression, E2E) ... PASS', cls:'pass'},
+    {t:'✓ Playwright automation — Career Pilot, Resume Pilot ... PASS', cls:'pass'},
+    {t:'✓ Cypress E2E — Hire10X regression flows ... PASS', cls:'pass'},
+    {t:'✓ Appium mobile regression — NSTI Android ... PASS', cls:'pass'},
+    {t:'✓ API validation — Postman / Swagger / JWT ... PASS', cls:'pass'},
+    {t:'✓ DB integrity — MySQL / PostgreSQL ... PASS', cls:'pass'},
+    {t:'  session-reuse + parallel exec enabled', cls:'file'},
+  ];
+  const body = document.getElementById('consoleBody');
+  let delay = 200;
+  lines.forEach((line, i) => {
+    const div = document.createElement('div');
+    div.className = 'console-line';
+    div.style.animationDelay = delay + 'ms';
+    const span = document.createElement('span');
+    span.className = line.cls;
+    span.textContent = line.t;
+    div.appendChild(span);
+    body.appendChild(div);
+    delay += 420;
+  });
+  const summary = document.createElement('div');
+  summary.className = 'console-summary';
+  summary.style.animationDelay = delay + 'ms';
+  summary.textContent = '7 passed · 0 failed · runtime cut ~40% ⚡';
+  body.appendChild(summary);
+</script>
+
 </body>
 </html>
